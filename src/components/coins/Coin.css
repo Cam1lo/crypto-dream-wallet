@@ -1,0 +1,11 @@
+.coins-container {
+    color: white;
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+    z-index: 2;
+}
+
+.coins-icon {
+    margin-right: .3rem
+}

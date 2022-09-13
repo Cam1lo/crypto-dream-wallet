@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'CeraRoundProThin';
+    src: url(../../assets/TypeMates\ \ CeraRoundProThin.otf);
+  }
+
+.custom-tooltip {
+    padding: .4rem;
+    background-color: white;
+}
+
+.date { 
+    font-family: 'CeraRoundProThin';
+}
+
+.chart-container {
+    z-index: 0;
+}

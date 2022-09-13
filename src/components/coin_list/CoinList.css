@@ -1,0 +1,5 @@
+.list-container { 
+    margin-top: 2rem;
+    height: 30rem;
+    overflow-y: auto;
+}

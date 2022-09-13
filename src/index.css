@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'CeraRoundProBold';
+  src: url(./assets/TypeMates\ \ Cera\ Round\ Pro\ Bold.otf);
+}
+@font-face {
+  font-family: 'CeraRoundProBlack';
+  src: url(./assets/TypeMates\ \ CeraRoundProBlack.otf);
+}
+
+
+body {
+  color: rgb(34, 50, 88);
+  font-family: "CeraRoundProBold";
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+}
+
+.logo{
+  width: 12rem;
+  height: 12rem;
+  position: absolute;
+  top: -2rem;
+  left: -1rem;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+::-webkit-scrollbar {
+  width: .4rem;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(34, 50, 88);
+  border-radius: .3rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(15, 23, 40);
+}

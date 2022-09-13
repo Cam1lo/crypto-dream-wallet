@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'CeraRoundProLight';
+    src: url(../../assets/TypeMates\ \ CeraRoundProLight.otf);
+  }
+
+.coin-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.left {
+    display: flex;
+}
+
+.coin-icon { 
+    transition: 1s;
+    cursor: pointer;
+    width: 2.3rem;
+    margin-right: .4rem;
+}
+
+.coin-title { 
+    display: flex;
+    flex-direction: column;
+}
+
+.coin-symbol {
+    font-size: .8rem;
+    font-family: 'CeraRoundProRegular';
+}
+
+.right { 
+    display: flex;
+    flex-direction: column;
+    font-size: .9;
+    align-items: flex-end;
+}
+
+.trend-up { 
+    color: #4be2a3;
+}
+
+
+.trend-down { 
+    color: #dc0057;
+}
+
+.time-interval {
+    font-size: .8rem;
+    font-family: 'CeraRoundProLight';
+    margin-right: .5rem;
+}

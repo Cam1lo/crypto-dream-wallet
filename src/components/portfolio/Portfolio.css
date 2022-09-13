@@ -1,0 +1,22 @@
+.portfolio-container {
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -4rem;
+}
+
+.no-portfolio-label { 
+    font-size: 1.1rem;
+}
+
+.go-to-market-btn {
+    cursor: pointer;
+    background-color: #273667;
+    color: white;
+    border-radius: .2rem;
+    padding: .3rem 1rem;
+    margin-top: .3rem;
+    text-align: center;
+}

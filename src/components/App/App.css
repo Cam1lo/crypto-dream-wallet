@@ -1,0 +1,63 @@
+.App {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 30rem;
+    width: 44rem;
+    background-color: white;
+    padding: 2rem;
+    border-radius: .5rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    overflow: hidden;
+}
+
+.corner-dot {
+    transition: .5s ease-in;
+    cursor: pointer;
+    position: absolute;
+    background-color:rgb(10, 15, 26);
+    transform: rotate(25deg);
+    height: 20rem;
+    width: 30rem;
+    right: 0;
+    top: 0;
+    margin: -17.8rem -14rem 0 0;
+    z-index: 1;
+}
+
+/* .corner-dot {
+    transition: .5s ease-in;
+    cursor: pointer;
+    position: absolute;
+    border-radius: 50%;
+    background-color:rgb(10, 15, 26);
+    height: 7.5rem;
+    width: 9rem;
+    right: 0;
+    top: 0;
+    margin: -4rem -4rem 0 0;
+} */
+
+.corner-dot:hover {
+    transform: rotate(28deg) translateY(100%) translateX(-100%) scale(4);
+}
+
+.refresh-icon {
+    margin-top: 2rem;
+}
+
+.rotating { 
+    animation: rotating 1s infinite;
+}
+
+@keyframes rotating {
+    from { 
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
