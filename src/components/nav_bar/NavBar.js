@@ -1,4 +1,4 @@
-import Coin from '../coins/Coin';
+import Points from './points/Points';
 import './NavBar.css'
 
 export default function NavBar({switch_function, active_item}) {
@@ -10,7 +10,7 @@ export default function NavBar({switch_function, active_item}) {
             <li onClick={() => {
                 switch_function('market')
             }} className={active_item === 'market' ? 'active' : 'no-active'}>Market</li>
-            <li className='coins'><Coin/></li>
+            <li className='points'><Points/></li>
         </div>
     );
 }

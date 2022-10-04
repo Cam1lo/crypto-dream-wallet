@@ -1,6 +1,8 @@
 import axios from "axios";
 import { options } from "../options";
 
+let points = 250;
+
 export default async function get_coins() {
     let data;
 
@@ -12,3 +14,6 @@ export default async function get_coins() {
 
     return data;
 }
+
+export const get_points = () => points;
+export const update_points = (change) => { points += change  }

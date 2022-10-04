@@ -1,22 +1,11 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import get_coins from '../../services/api';
-import CoinList from '../coin_list/CoinList'
-import NavBar from '../nav_bar/NavBar'
+import Market from '../market/Market';
+import NavBar from '../nav_bar/NavBar';
 import Portfolio from '../portfolio/Portfolio';
 
 function App() {
-
-  const [coins, set_coins] = useState([])
   const [active_page, set_active_page] = useState('portfolio')
-
-  useEffect(() => {
-    async function fetch_coins() {
-      const data = await get_coins()
-      set_coins(data.data.coins)
-    }
-    fetch_coins()
-  }, []);
 
   const switch_screen = (page) => {
     set_active_page(page)
@@ -27,7 +16,9 @@ function App() {
       return <Portfolio goToMarket={() => {
         switch_screen('market')
       }}/>
-    } else return <CoinList coins={coins}/>
+    } if (active_page === 'market') {
+      return <Market/>
+    }
   }
 
   return (

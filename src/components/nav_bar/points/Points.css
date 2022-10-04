@@ -1,4 +1,4 @@
-.coins-container {
+.points-container {
     color: white;
     position: absolute;
     right: .5rem;
@@ -6,6 +6,6 @@
     z-index: 2;
 }
 
-.coins-icon {
+.points-icon {
     margin-right: .3rem
 }

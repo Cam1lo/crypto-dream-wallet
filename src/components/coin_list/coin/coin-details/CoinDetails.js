@@ -1,11 +1,11 @@
 import './CoinDetails.css'
-import Chart from '../chart/Chart'
-import sparkline_to_datachart from '../../services/data'
+import Chart from '../../../chart/Chart'
+import sparkline_to_datachart from '../../../../services/data'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartSimple } from '@fortawesome/free-solid-svg-icons'
 import { faChartPie } from '@fortawesome/free-solid-svg-icons'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
-import { formatNumber } from '../../services/utils'
+import { formatNumber } from '../../../../services/utils'
 import ReactTooltip from 'react-tooltip';
 
 export default function CoinDetails(coin) {
