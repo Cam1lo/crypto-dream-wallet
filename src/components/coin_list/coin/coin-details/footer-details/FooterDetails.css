@@ -1,0 +1,43 @@
+.footer-details { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stats {
+    margin-left: .5rem;
+    display: flex;
+}
+
+.stat {
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-icon {
+    margin-right: .2rem;
+}
+
+.stat>span {
+    font-family: 'CeraRoundProThin';
+}
+
+.stats-right {
+    display: flex;
+    align-items: center;
+}
+
+.buy-btn { 
+    cursor: pointer;
+    background-color: #273667;
+    color: white;
+    border-radius: .2rem;
+    padding: .3rem 1rem;
+    margin-right: 2rem;
+    text-align: center;
+}
+
+.confirm-buy-container {
+    margin-right: 2rem;
+}

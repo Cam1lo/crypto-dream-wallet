@@ -51,3 +51,8 @@
     font-family: 'CeraRoundProLight';
     margin-right: .5rem;
 }
+
+.green-btn {
+    background-color: #4be2a3 !important;
+    color: #273667 !important;
+}

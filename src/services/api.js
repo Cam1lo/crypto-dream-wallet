@@ -1,19 +1,36 @@
 import axios from "axios";
 import { options } from "../options";
 
-let points = 250;
+export default class Api {
+    static user = {
+        name: 'Camilo Nodarse',
+        email: 'camilojosecnc@gmail.com',
+        password: '123',
+        points: '250',
+        portfolio: [],
+    }
 
-export default async function get_coins() {
-    let data;
+    static async get_coins() {
+        let data;
 
-    await axios.request(options).then(function (response) {
-        data = response.data
-    }).catch(function (error) {
-        console.error(error);
-    })
+        await axios.request(options).then(function (response) {
+            data = response.data
+        }).catch(function (error) {
+            console.error(error);
+        })
 
-    return data;
+        return data;
+    }
+
+    static get_portfolio() { return this.user.portfolio }
+
+    static get_points() { return this.user.points }
+
+    static update_points(change) { this.user.points = Number(this.user.points) + change }
+
+    static add_to_portfolio(coin) { this.user.portfolio.push(coin) }
+
+    static remove_from_portfolio(coin_id) { this.user.portfolio.splice(this.user.portfolio.findIndex(e => e.id == coin_id),1) }
+
+    static login = (username, pass) => (this.user.name === username && this.user.password === pass);
 }
-
-export const get_points = () => points;
-export const update_points = (change) => { points += change  }
