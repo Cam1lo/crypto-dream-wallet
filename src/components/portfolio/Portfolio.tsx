@@ -1,6 +1,7 @@
+import React from 'react'
 import './Portfolio.css'
 
-export default function Portfolio({goToMarket}) {
+export default function Portfolio({goToMarket}: {goToMarket: Function}) {
     return (
         <div className="portfolio-container">
             <span className='no-portfolio-label'>Not Portfolio Yet</span>

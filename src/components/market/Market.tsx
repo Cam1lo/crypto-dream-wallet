@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import CoinList from '../coin_list/CoinList';
-import Provider from '../../services/provider';
+import Provider from '../../services/Provider';
+import React from 'react';
+import { ICoin } from '../../models/ICoin';
 
 export default function Market() {
-    const [coins, set_coins] = useState([])
+    const [coins, set_coins] = useState<ICoin[]>([])
     
     useEffect(() => {
         async function fetch() {

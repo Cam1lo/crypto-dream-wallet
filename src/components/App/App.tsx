@@ -3,14 +3,15 @@ import './App.css';
 import Market from '../market/Market';
 import NavBar from '../nav_bar/NavBar';
 import Portfolio from '../portfolio/Portfolio';
-import test from '../../test/test';
 import { useEffect } from 'react';
+import React from 'react';
+import {Test} from '../../test/test';
 
 function App() {
-  const [active_page, set_active_page] = useState('portfolio')
+  const [active_page, set_active_page] = useState<string>('portfolio')
 
-  const switch_screen = (page) => {
-    set_active_page(page)
+  const switch_screen = (pagename : string) => {
+    set_active_page(pagename)
   }
 
   function active_page_fun() {
@@ -24,14 +25,14 @@ function App() {
   }
 
   useEffect(() => {
-    test();
+    // Test();
   })
 
   return (
     <div className="App">
-      {/* <div className='corner-dot'/>
-      <NavBar switch_function={switch_screen} active_item={active_page}/>
-      {active_page_fun()} */}
+      <div className='corner-dot'/>
+      <NavBar switch_function={switch_screen} active_page_name={active_page}/>
+      {active_page_fun()}
     </div>
   );
 }

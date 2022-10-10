@@ -1,5 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-/src/options.js
+/src/ApiOptionProvider.ts
 
 # dependencies
 /node_modules

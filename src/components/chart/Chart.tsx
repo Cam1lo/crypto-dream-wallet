@@ -1,14 +1,20 @@
+import React from 'react';
 import { AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
-import { max_price, min_price } from '../../services/data';
+import { ChartData } from '../../models/ChartData';
+import { ChartUtils } from '../../services/ChartUtils'
 import './Chart.css'
 
-export default function Chart({ data }) {
-  const min = Number(min_price(data))
-  const max = Number(max_price(data))
+type Props = {
+  data: ChartData[]
+}
+
+export default function Chart({ data }: Props) {
+  const min = Number(ChartUtils.min_price(data))
+  const max = Number(ChartUtils.max_price(data))
   const low_range = min - min / 50
   const hight_range = max + max / 15
 
-  function CustomTooltip({ payload, label, active }) {
+  function CustomTooltip({ payload, label, active }: any) {
     if (active) {
       return (
         <div className="custom-tooltip">
@@ -32,9 +38,9 @@ export default function Chart({ data }) {
         </defs>
         <CartesianGrid strokeDasharray="6" />
         <Area type="monotone" dataKey="price" stroke="#273667" fillOpacity={1} fill="url(#colorUv)" />
-        <XAxis hide='true' />
-        <YAxis hide='true' domain={[low_range, hight_range]} />
-        <Tooltip wrapperStyle={{ outline: 'none' }} content={<CustomTooltip />} />
+        <XAxis hide={true} />
+        <YAxis hide={true} domain={[low_range, hight_range]} />
+        <Tooltip wrapperStyle={{ outline: 'none' }} content={<CustomTooltip payload={undefined} label={undefined} active={undefined}/>} />
       </AreaChart>
     </div>
   );

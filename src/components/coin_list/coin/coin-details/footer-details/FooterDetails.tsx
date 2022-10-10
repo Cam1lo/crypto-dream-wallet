@@ -1,18 +1,20 @@
-import { useState } from 'react'
+import { MouseEventHandler, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartSimple } from '@fortawesome/free-solid-svg-icons'
 import { faChartPie } from '@fortawesome/free-solid-svg-icons'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
-import { formatNumber } from '../../../../../services/utils'
+import { Utils } from '../../../../../services/Utils'
 import ReactTooltip from 'react-tooltip';
 import './FooterDetails.css';
 import ConfirmBuy from './confirm-buy/ConfirmBuy';
+import { ICoin } from '../../../../../models/ICoin'
+import React from 'react'
 
-export default function FooterDetails({coin}) {
+export default function FooterDetails({coin}: {coin: ICoin}) {
     const [buying, set_buying] = useState(false);
     const [spending, set_spending] = useState(0)
     const openExternalLink = () => window.open(coin.coinrankingUrl);
-    const handleClick = (e) => e.stopPropagation(); 
+    const handleClick: MouseEventHandler<HTMLDivElement> = (event): void => event.stopPropagation(); 
     
     const buyingBtnClick = () => {
         if(!buying) set_buying(true)
@@ -28,14 +30,14 @@ export default function FooterDetails({coin}) {
                     <FontAwesomeIcon className='stat-icon' icon={faChartSimple} />
                     <span>Volume</span>
                 </div>
-                <span>{`$ ${formatNumber(coin['24hVolume'])}`}</span>
+                <span>{`$ ${Utils.format_number(coin['24hVolume'])}`}</span>
             </div>
             <div className='stat'>
                 <div>
                     <FontAwesomeIcon className='stat-icon' icon={faChartPie} />
                     <span>Market Cap</span>
                 </div>
-                <span>{`$ ${formatNumber(coin.marketCap)}`}</span>
+                <span>{`$ ${Utils.format_number(coin.marketCap)}`}</span>
             </div>
         </div>
         <div className='stats-right'>
