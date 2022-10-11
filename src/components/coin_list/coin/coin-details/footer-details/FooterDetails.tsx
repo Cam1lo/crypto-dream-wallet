@@ -9,6 +9,7 @@ import './FooterDetails.css';
 import ConfirmBuy from './confirm-buy/ConfirmBuy';
 import { ICoin } from '../../../../../models/ICoin'
 import React from 'react'
+import Provider from '../../../../../services/Provider'
 
 export default function FooterDetails({coin}: {coin: ICoin}) {
     const [buying, set_buying] = useState(false);
@@ -19,7 +20,7 @@ export default function FooterDetails({coin}: {coin: ICoin}) {
     const buyingBtnClick = () => {
         if(!buying) set_buying(true)
         else {
-            console.log(spending);
+            Provider.add_to_portfolio(coin.uuid, spending);
         }
     }; 
 

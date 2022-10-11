@@ -1,6 +1,9 @@
 .portfolio-container {
     height: 30rem;
     display: flex;
+}
+
+.no-coin-portfolio-container { 
     flex-direction: column;
     justify-content: center;
     align-items: center;

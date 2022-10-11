@@ -10,8 +10,12 @@ export default class Api {
         name: 'Camilo Nodarse',
         email: 'camilojosecnc@gmail.com',
         password: '123',
-        points: 250,
+        points: 259,
         portfolio: [],
+    }
+
+    static async get_user(): Promise<IUser> {
+        return await this.user;
     }
 
     static async get_coins(): Promise<ICoin[]> {
@@ -41,6 +45,7 @@ export default class Api {
     static async add_to_portfolio(coin_uuid: string, amount_of_points: number) {
         const coin: ICoin = await this.get_coin_by_id(coin_uuid);
         const amount = amount_of_points / coin.price;
+        console.log(amount_of_points, coin.price, amount);
         const portfolio_coin: IPortfolioCoin = {
             coin: coin,
             amount,

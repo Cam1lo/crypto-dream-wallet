@@ -32,6 +32,6 @@ export default function ConfirmBuy({ coin, value, onChange }: Props) {
          <div onClick={() => set_coin_buying(!coin_buying)}>
             { buying_with() }
          </div>
-         <input value={value} onChange={(e) => onChange(e.target.value)} className='amount' type="number" max={ user_points } />
+         <input value={value} onChange={(e) => onChange(e.target.value)} className='amount' type="number" min={1} max={ user_points } />
     </div>
 }

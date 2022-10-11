@@ -1,9 +1,12 @@
+import React, { useContext, useEffect, useState } from 'react';
+import { IUser } from '../models/IUser';
 import Api from './Api';
-
 export default class Provider {
     static async login(username: string, password: string) {
         return Api.login(username, password);
     }
+
+    static async get_user() {return await Api.get_user()};
 
     static async fetch_coins() { return await Api.get_coins(); }
 

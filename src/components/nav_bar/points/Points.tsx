@@ -2,7 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoins } from '@fortawesome/free-solid-svg-icons'
 import Provider from '../../../services/Provider';
 import './Points.css'
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import Api from '../../../services/Api';
 
 export default function Points() {
     const [user_points, set_user_points] = useState<number>(0);

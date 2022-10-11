@@ -1,0 +1,15 @@
+.pcoins-list-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.portfolio-value {
+    font-size: 4rem;
+}
+
+.portfolio-icon-value {
+    font-size: 2rem;
+    margin-right: .5rem;
+}
