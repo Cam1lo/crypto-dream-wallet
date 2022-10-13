@@ -1,12 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { IUser } from '../models/IUser';
+import { actionCreators } from '../state';
 import Api from './Api';
 export default class Provider {
+
     static async login(username: string, password: string) {
         return Api.login(username, password);
     }
 
-    static async get_user() {return await Api.get_user()};
+    static async get_user() { return await Api.get_user() };
 
     static async fetch_coins() { return await Api.get_coins(); }
 

@@ -1,5 +1,5 @@
 import { Action } from "../../models/IAction";
-import { ActionTypes as AT} from "../actionTypes";
+import { ActionTypes as AT} from "../ActionTypes";
 
 export const userReducer = (
     state:any = {},

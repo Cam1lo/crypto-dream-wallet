@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Market from '../market/Market';
-import NavBar from '../nav_bar/NavBar';
+import NavBar from '../nav-bar/NavBar';
 import Portfolio from '../portfolio/Portfolio';
 import React from 'react';
 
 function App() {
   const [active_page, set_active_page] = useState<string>('portfolio')
+  const [loading, set_loading] = useState<boolean>(true);
 
   const switch_screen = (pagename: string) => {
     set_active_page(pagename)
@@ -23,11 +24,15 @@ function App() {
   }
 
   return (
-      <div className="App">
-        <div className='corner-dot' />
-        <NavBar switch_function={switch_screen} active_page_name={active_page} />
-        {active_page_fun()}
-      </div>
+    <>
+      {loading ? <div>LOADING</div> :
+        <div className="App">
+          <div className='corner-dot' />
+          <NavBar switch_function={switch_screen} active_page_name={active_page} />
+          {active_page_fun()}
+        </div>
+      }
+    </>
   );
 }
 
