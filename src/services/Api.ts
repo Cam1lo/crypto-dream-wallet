@@ -45,14 +45,14 @@ export default class Api {
     static async add_to_portfolio(coin_uuid: string, amount_of_points: number) {
         const coin: ICoin = await this.get_coin_by_id(coin_uuid);
         const amount = amount_of_points / coin.price;
-        console.log(amount_of_points, coin.price, amount);
         const portfolio_coin: IPortfolioCoin = {
             coin: coin,
             amount,
             trades: [{timestamp: Date.now().toString(), amount: amount}],
             value: amount * coin.price
         }
-        this.user.portfolio = [portfolio_coin];
+        this.user.portfolio = this.user.portfolio.concat([portfolio_coin]);
+        this.update_points(-amount_of_points);
     }
 
     static remove_from_portfolio(coin_id: string) { 

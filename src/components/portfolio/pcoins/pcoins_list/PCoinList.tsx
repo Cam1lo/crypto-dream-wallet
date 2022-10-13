@@ -6,7 +6,7 @@ export default function PCoinList({ pcoins }: { pcoins: IPortfolioCoin[] }) {
     return <div className="list-container">
         {pcoins.map((pcoin: IPortfolioCoin) => {
             return (
-                <PCoin pcoin={pcoin} />
+                <PCoin key={'p' + pcoin.coin.uuid} pcoin={pcoin} />
             )
         })}
     </div>

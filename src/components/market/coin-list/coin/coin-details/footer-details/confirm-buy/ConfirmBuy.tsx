@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoins } from '@fortawesome/free-solid-svg-icons'
-import Provider from '../../../../../../../services/Provider';
+import Provider from '../../../../../../../services/StateProvider';
 import './ConfirmBuy.css';
 import { ICoin } from '../../../../../../../models/ICoin';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 type Props = {
     coin: ICoin,
@@ -14,15 +15,9 @@ type Props = {
 
 export default function ConfirmBuy({ coin, value, onChange }: Props) {
     const [coin_buying, set_coin_buying] = useState(true); 
-    const [user_points, set_user_points] = useState<number>(0);
+    const user_points = useSelector((state: any) => state.user.points);
     
-    useEffect(() => {
-        async function get_points() {
-             set_user_points(await Provider.get_user_points());
-        }
-
-        get_points();
-    })
+    
     const buying_with = () => coin_buying ? 
     <FontAwesomeIcon size='1x' className='confirm-points-icon' color='#000' icon={faCoins}/> : 
     <img className={'crypto-coin-icon'} src={coin.iconUrl} />; 

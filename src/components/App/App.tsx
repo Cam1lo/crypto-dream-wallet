@@ -4,11 +4,12 @@ import Market from '../market/Market';
 import NavBar from '../nav-bar/NavBar';
 import Portfolio from '../portfolio/Portfolio';
 import React from 'react';
+import { useConfig } from '../../services/CustomHooks';
 
 function App() {
   const [active_page, set_active_page] = useState<string>('portfolio')
-  const [loading, set_loading] = useState<boolean>(true);
-
+  const loading = useConfig();
+  
   const switch_screen = (pagename: string) => {
     set_active_page(pagename)
   }

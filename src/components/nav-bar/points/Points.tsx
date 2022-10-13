@@ -5,7 +5,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 export default function Points() {
-    const points = useSelector((state: any) => state.user_points);
+    const points = useSelector((state: any) => state.user.points);
 
     return (
         <div className='points-container'>

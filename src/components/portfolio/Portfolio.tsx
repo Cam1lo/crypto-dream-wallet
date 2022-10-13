@@ -1,19 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { IPortfolioCoin } from '../../models/IPortfolioCoin'
-import Provider from '../../services/Provider';
+import { useSelector } from 'react-redux';
 import PCoins from './pcoins/PCoins';
 import './Portfolio.css'
 
 export default function Portfolio({ goToMarket }: { goToMarket: Function }) {
-    const [pcoins, set_pcoins] = useState<IPortfolioCoin[]>([]);
-
-    useEffect(() => {
-        async function init_pcoins() {
-            set_pcoins(await Provider.get_portfolio())
-        }
-
-        init_pcoins();
-    })
+    const pcoins =  useSelector((state: any) => state.pcoins)
 
     const have_coins = () => pcoins.length > 0;
 
