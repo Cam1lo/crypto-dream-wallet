@@ -3,13 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartSimple } from '@fortawesome/free-solid-svg-icons'
 import { faChartPie } from '@fortawesome/free-solid-svg-icons'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
-import { Utils } from '../../../../../services/Utils'
+import { Utils } from '../../../../../../services/Utils'
 import ReactTooltip from 'react-tooltip';
 import './FooterDetails.css';
 import ConfirmBuy from './confirm-buy/ConfirmBuy';
-import { ICoin } from '../../../../../models/ICoin'
+import { ICoin } from '../../../../../../models/ICoin'
 import React from 'react'
-import Provider from '../../../../../services/Provider'
+import Provider from '../../../../../../services/Provider'
 
 export default function FooterDetails({coin}: {coin: ICoin}) {
     const [buying, set_buying] = useState(false);

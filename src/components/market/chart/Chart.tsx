@@ -1,7 +1,7 @@
 import React from 'react';
 import { AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
-import { ChartData } from '../../models/ChartData';
-import { ChartUtils } from '../../services/ChartUtils'
+import { ChartData } from '../../../models/ChartData';
+import { ChartUtils } from '../../../services/ChartUtils'
 import './Chart.css'
 
 type Props = {

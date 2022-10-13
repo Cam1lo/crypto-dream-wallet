@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowTrendUp } from '@fortawesome/free-solid-svg-icons'
 import { faArrowTrendDown } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { ICoin } from '../../../../models/ICoin'
+import { ICoin } from '../../../../../models/ICoin'
 
 export default function CoinHeader(coin: ICoin) {
     let coin_price = Number(coin.price).toFixed(4)

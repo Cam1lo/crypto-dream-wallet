@@ -1,8 +1,8 @@
 import './CoinDetails.css'
 import Chart from '../../../chart/Chart'
-import { ChartUtils } from '../../../../services/ChartUtils'
+import { ChartUtils } from '../../../../../services/ChartUtils'
 import FooterDetails from './footer-details/FooterDetails'
-import { ICoin } from '../../../../models/ICoin'
+import { ICoin } from '../../../../../models/ICoin'
 import React from 'react'
 
 export default function CoinDetails(coin: ICoin) {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ICoin } from '../../models/ICoin'
+import { ICoin } from '../../../models/ICoin'
 import Coin from './coin/Coin'
 import './CoinList.css'
 
