@@ -10,19 +10,31 @@ import ConfirmBuy from './confirm-buy/ConfirmBuy';
 import { ICoin } from '../../../../../../models/ICoin'
 import React from 'react'
 import StateProvider from '../../../../../../services/StateProvider'
+import { toast, ToastContainer } from 'react-toastify'
 
-export default function FooterDetails({coin}: {coin: ICoin}) {
+export default function FooterDetails({ coin }: { coin: ICoin }) {
     const [buying, set_buying] = useState(false);
     const [spending, set_spending] = useState(0)
     const openExternalLink = () => window.open(coin.coinrankingUrl);
-    const handleClick: MouseEventHandler<HTMLDivElement> = (event): void => event.stopPropagation(); 
-    
+    const handleClick: MouseEventHandler<HTMLDivElement> = (event): void => event.stopPropagation();
+
     const buyingBtnClick = () => {
-        if(!buying) set_buying(true)
+        if (!buying) set_buying(true)
         else {
             StateProvider.add_to_portfolio(coin.uuid, spending);
+            set_buying(false);
+            toast.success('Coin added to portfolio', {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
         }
-    }; 
+    };
 
     return <div className='footer-details' onClick={handleClick}>
         <div className='stats'>
@@ -43,7 +55,7 @@ export default function FooterDetails({coin}: {coin: ICoin}) {
         </div>
         <div className='stats-right'>
             <div className='confirm-buy-container'>
-                { buying ? <ConfirmBuy value={spending} onChange={set_spending} coin={coin}/> : null}
+                {buying ? <ConfirmBuy value={spending} onChange={set_spending} coin={coin} /> : null}
             </div>
             <div className={buying ? 'buy-btn green-btn' : 'buy-btn'} onClick={buyingBtnClick}>{buying ? 'Confirm Buy' : 'Buy'}</div>
             <FontAwesomeIcon onClick={openExternalLink} data-tip="Full Details" className='external-icon' icon={faArrowUpRightFromSquare} />
