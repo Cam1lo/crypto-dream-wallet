@@ -21,7 +21,7 @@ export default function FooterDetails({ coin }: { coin: ICoin }) {
     const buyingBtnClick = () => {
         if (!buying) set_buying(true)
         else {
-            StateProvider.add_to_portfolio(coin.uuid, spending);
+            StateProvider.buy(coin.uuid, spending);
             set_buying(false);
             toast.success('Coin added to portfolio', {
                 position: "bottom-center",

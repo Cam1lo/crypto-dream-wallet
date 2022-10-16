@@ -20,8 +20,8 @@ export default class ApiProvider {
         return await Api.get_portfolio();
     }
 
-    static async add_to_portfolio(coin_id: string, amount_of_points: number) {
-        await Api.add_to_portfolio(coin_id, amount_of_points);
+    static async buy(coin_id: string, amount_of_points: number) {
+        await Api.buy(coin_id, amount_of_points);
     }
 
     static async remove_from_portfolio(coin_id: string) {

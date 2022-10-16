@@ -33,7 +33,7 @@ export default class Api {
             return data.coin;
         }).catch(function (error) {
             console.log(error)
-        }) 
+        })
     }
 
     static get_portfolio() { return this.user.portfolio }
@@ -42,21 +42,50 @@ export default class Api {
 
     static update_points(change: number) { this.user.points = Number(this.user.points) + change }
 
+    static async buy(coin_uuid: string, amount_of_points: number) {
+        const pcoin = this.user.portfolio.find(pcoin => pcoin.coin.uuid == coin_uuid);
+        if (!pcoin) {
+            await this.add_to_portfolio(coin_uuid, amount_of_points);
+        }
+        else {
+            const amount = amount_of_points / pcoin.coin.price;
+            const total_amount = (amount_of_points / pcoin.coin.price) + pcoin.amount;
+
+            const pcoin_updated: IPortfolioCoin = {
+                coin: pcoin.coin,
+                amount: total_amount,
+                trades: [{ timestamp: Date.now().toString(), amount: amount }],
+                value: Math.round(((total_amount * pcoin.coin.price) + Number.EPSILON) * 100) / 100
+            }
+
+            let updated_portfolio = this.user.portfolio;
+
+            var index = updated_portfolio.indexOf(pcoin);
+
+            if (index !== -1) {
+                updated_portfolio[index] = pcoin_updated;
+            }
+
+            this.user.portfolio = updated_portfolio
+            this.update_points(-amount_of_points);
+        }
+    }
+
     static async add_to_portfolio(coin_uuid: string, amount_of_points: number) {
         const coin: ICoin = await this.get_coin_by_id(coin_uuid);
         const amount = amount_of_points / coin.price;
         const portfolio_coin: IPortfolioCoin = {
             coin: coin,
             amount,
-            trades: [{timestamp: Date.now().toString(), amount: amount}],
+            trades: [{ timestamp: Date.now().toString(), amount: amount }],
             value: amount * coin.price
         }
         this.user.portfolio = this.user.portfolio.concat([portfolio_coin]);
         this.update_points(-amount_of_points);
     }
 
-    static remove_from_portfolio(coin_id: string) { 
-        this.user.portfolio.splice(this.user.portfolio.findIndex(e => e.coin.uuid == coin_id),1) 
+    static remove_from_portfolio(coin_id: string) {
+        this.user.portfolio.splice(this.user.portfolio.findIndex(e => e.coin.uuid == coin_id), 1)
     }
 
     static login = (username: string, pass: string) => (this.user.name === username && this.user.password === pass);

@@ -9,9 +9,9 @@ export default class StateProvider {
         this.dispatch = dispatch
     }
     
-    static async add_to_portfolio(uuid: string, spending: number) {
+    static async buy(uuid: string, spending: number) {
         const { setPortfolio, setUser } = bindActionCreators(actionCreators, this.dispatch);
-        await ApiProvider.add_to_portfolio(uuid, spending);
+        await ApiProvider.buy(uuid, spending);
         setPortfolio(await ApiProvider.get_portfolio());
         setUser(await ApiProvider.get_user());
     }
