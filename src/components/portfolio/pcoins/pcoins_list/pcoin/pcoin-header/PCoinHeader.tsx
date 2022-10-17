@@ -1,9 +1,6 @@
 import './PCoinHeader.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowTrendUp, faCoins } from '@fortawesome/free-solid-svg-icons'
-import { faArrowTrendDown } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { ICoin } from '../../../../../../models/ICoin'
 import { IPortfolioCoin } from '../../../../../../models/IPortfolioCoin'
 import { Utils } from '../../../../../../services/Utils'
 

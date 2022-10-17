@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoins } from '@fortawesome/free-solid-svg-icons'
-import Provider from '../../../../../../../services/StateProvider';
 import './ConfirmBuy.css';
 import { ICoin } from '../../../../../../../models/ICoin';
 import React from 'react';

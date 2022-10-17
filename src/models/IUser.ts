@@ -1,4 +1,3 @@
-import { ICoin } from "./ICoin";
 import { IPortfolioCoin } from "./IPortfolioCoin";
 
 export interface IUser {

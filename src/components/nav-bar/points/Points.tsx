@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoins } from '@fortawesome/free-solid-svg-icons'
 import './Points.css'
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 export default function Points() {
