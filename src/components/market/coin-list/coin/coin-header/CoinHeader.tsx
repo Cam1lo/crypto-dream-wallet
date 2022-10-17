@@ -4,13 +4,10 @@ import { faArrowTrendUp } from '@fortawesome/free-solid-svg-icons'
 import { faArrowTrendDown } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { ICoin } from '../../../../../models/ICoin'
+import { Utils } from '../../../../../services/Utils'
 
 export default function CoinHeader(coin: ICoin) {
-    let coin_price = Number(coin.price).toFixed(4)
-
-    if (coin_price === '0.0000') {
-        coin_price = Number(coin.price).toPrecision(4)
-    }
+    let coin_price = Utils.format_price(coin.price);
 
     return <div className='coin-header'>
         <div className='left'>

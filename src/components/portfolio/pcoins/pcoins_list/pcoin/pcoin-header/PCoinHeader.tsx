@@ -5,15 +5,13 @@ import { faArrowTrendDown } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { ICoin } from '../../../../../../models/ICoin'
 import { IPortfolioCoin } from '../../../../../../models/IPortfolioCoin'
+import { Utils } from '../../../../../../services/Utils'
 
 export default function PCoinHeader(pcoin: IPortfolioCoin) {
-    let coin_price = Number(pcoin.coin.price).toFixed(4)
+    let coin_price = Utils.format_price(pcoin.coin.price)
     let amount_fixed = Number(pcoin.amount).toFixed(4)
 
-    if (coin_price === '0.0000') {
-        coin_price = Number(pcoin.coin.price).toPrecision(4)
-    }
-
+    
     
     if (amount_fixed.startsWith('0.000')) {
         amount_fixed = Number(pcoin.amount).toPrecision(4)
