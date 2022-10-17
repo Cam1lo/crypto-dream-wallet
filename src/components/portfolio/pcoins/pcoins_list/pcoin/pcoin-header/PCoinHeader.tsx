@@ -1,11 +1,12 @@
 import './PCoinHeader.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoins } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { IPortfolioCoin } from '../../../../../../models/IPortfolioCoin'
 import { Utils } from '../../../../../../services/Utils'
 
 export default function PCoinHeader(pcoin: IPortfolioCoin) {
-    let coin_price = Utils.format_price(pcoin.coin.price)
+    let coin_price = Utils.format_price(pcoin.coin.price);
     let amount_fixed = Number(pcoin.amount).toFixed(4)
 
     
