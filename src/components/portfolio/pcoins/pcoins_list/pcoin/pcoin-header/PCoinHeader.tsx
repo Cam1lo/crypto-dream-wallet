@@ -28,7 +28,7 @@ export default function PCoinHeader(pcoin: IPortfolioCoin) {
             <div className="change">
                 <span className='time-interval'>
                     <FontAwesomeIcon size='1x' className='points-icon' icon={faCoins} />
-                    {pcoin.value}
+                    {Utils.format_price(pcoin.value)}
                 </span>
             </div>
         </div>
