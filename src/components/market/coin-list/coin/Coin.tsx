@@ -5,13 +5,11 @@ import CoinDetails from './coin-details/CoinDetails'
 import React from 'react'
 import { ICoin } from '../../../../models/ICoin'
 
-export default function ListItem({ coin }: {coin: ICoin}) {
-    const [expanded, set_expanded] = useState(false)
-    const handleClick = () => {set_expanded(!expanded)}
+export default function ListItem({ coin, expanded, onClick}: {coin: ICoin, expanded: boolean, onClick: Function}) {
 
 
     return (
-        <div onClick={handleClick} className={expanded ? 'item-container expanded' : 'item-container'}>
+        <div onClick={() => onClick()} className={expanded ? 'item-container expanded' : 'item-container'}>
             {CoinHeader(coin)}
             {expanded ? CoinDetails(coin) : null}
         </div>
