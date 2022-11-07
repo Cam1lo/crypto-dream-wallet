@@ -50,11 +50,12 @@ export default class Api {
         else {
             const amount = amount_of_points / pcoin.coin.price;
             const total_amount = (amount_of_points / pcoin.coin.price) + pcoin.amount;
+            const date_string = new Date(Date.now()).toLocaleString();
 
             const pcoin_updated: IPortfolioCoin = {
                 coin: pcoin.coin,
                 amount: total_amount,
-                trades: [{ timestamp: Date.now().toString(), amount: amount }],
+                trades: [{ points_spended: amount_of_points  ,timestamp: date_string, amount: amount,  }].concat(pcoin.trades),
                 value: Math.round(((total_amount * pcoin.coin.price) + Number.EPSILON) * 100) / 100
             }
 
@@ -74,10 +75,12 @@ export default class Api {
     static async add_to_portfolio(coin_uuid: string, amount_of_points: number) {
         const coin: ICoin = await this.get_coin_by_id(coin_uuid);
         const amount = amount_of_points / coin.price;
+        const date_string = new Date(Date.now()).toLocaleString();
+
         const portfolio_coin: IPortfolioCoin = {
             coin: coin,
             amount,
-            trades: [{ timestamp: Date.now().toString(), amount: amount }],
+            trades: [{ points_spended: amount_of_points, timestamp: date_string, amount: amount }],
             value: amount * coin.price
         }
         this.user.portfolio = this.user.portfolio.concat([portfolio_coin]);

@@ -13,4 +13,9 @@ export abstract class Utils {
         let formatter = Intl.NumberFormat('en', { notation: 'compact' });
         return formatter.format(number)
     }
+
+    static timeConverter(timestamp: string){
+        const date = new Date(timestamp);
+        return date.toDateString();
+      }
 }

@@ -6,7 +6,7 @@ export default class StateProvider {
     static dispatch: any;
 
     static init_Provider(dispatch: any) {
-        this.dispatch = dispatch
+        this.dispatch = dispatch;
     }
     
     static async buy(uuid: string, spending: number) {
@@ -16,15 +16,18 @@ export default class StateProvider {
         setUser(await ApiProvider.get_user());
     }
     
-
+    static async init_portfolio() {
+        const { setPortfolio } = bindActionCreators(actionCreators, this.dispatch);
+        setPortfolio(await ApiProvider.get_portfolio());
+    }
 
     static async init_user() {
-        const { setUser } = bindActionCreators(actionCreators, this.dispatch)
-        setUser(await ApiProvider.get_user())
+        const { setUser } = bindActionCreators(actionCreators, this.dispatch);
+        setUser(await ApiProvider.get_user());
     }
 
     static async init_coins() {
-        const { initCoins } = bindActionCreators(actionCreators, this.dispatch)
-        initCoins(await ApiProvider.get_coins())
+        const { initCoins } = bindActionCreators(actionCreators, this.dispatch);
+        initCoins(await ApiProvider.get_coins());
     }
 }

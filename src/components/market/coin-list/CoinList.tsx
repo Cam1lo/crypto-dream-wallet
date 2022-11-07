@@ -9,11 +9,15 @@ export default function CoinList() {
     const [expanded, set_expanded] = useState<string>();
     const coin_list = coins.length > 0 ? coins : []
 
+    function toogle_expanded(uuid: string) {
+        expanded == uuid ? set_expanded('') : set_expanded(uuid);
+    }
+
     return (
         <div className="list-container">
             {coin_list.map((coin: ICoin) => {
                 return (
-                    <Coin onClick={() => set_expanded(coin.uuid)} expanded={expanded == coin.uuid} key={coin.uuid} coin={coin} />
+                    <Coin onClick={() => toogle_expanded(coin.uuid)} expanded={expanded == coin.uuid} key={coin.uuid} coin={coin} />
                 )
             })}
         </div>

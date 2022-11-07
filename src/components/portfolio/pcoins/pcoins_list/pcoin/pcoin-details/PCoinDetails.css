@@ -1,0 +1,16 @@
+.ptransaction {
+    display: flex;
+    /* width: 100%; */
+    justify-content: space-between;
+    margin: 1rem 0;
+    align-items: center;
+}
+
+.ptransaction-left {
+    display: flex;
+    align-items: center;
+}
+
+.ptransaction-amount { 
+    margin-left: 1rem;
+}
