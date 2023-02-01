@@ -1,0 +1,45 @@
+.corner-dot {
+    transition: .5s ease-in;
+    cursor: pointer;
+    position: absolute;
+    background-color: rgb(10, 15, 26);
+    transform: rotate(25deg);
+    height: 20rem;
+    width: 30rem;
+    right: 0;
+    top: 0;
+    margin: -17.8rem -14rem 0 0;
+    z-index: 1;
+}
+
+.extended {
+    transform: rotate(28deg) translateY(100%) translateX(-100%) scale(4);
+}
+
+.get-more-coins-container {
+     position: absolute;
+     right: 0;
+     left: 0;
+     top: 0;
+     bottom: 0;
+     margin: auto;
+     height: 20rem;
+     width: 40rem;
+     z-index: 111;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.hide { 
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.get-more-coins-card { 
+     border: 1px solid white;
+     border-radius: 1rem;
+     padding: 2rem;
+}

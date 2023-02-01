@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Market from '../market/Market';
+import GetMoreCoins from './get-more-coins/GetMoreCoins';
 import NavBar from '../nav-bar/NavBar';
 import Portfolio from '../portfolio/Portfolio';
 import React from 'react';
@@ -28,7 +29,7 @@ function App() {
     <>
       {loading ? <div>LOADING</div> :
         <div className="App">
-          <div className='corner-dot' />
+          <GetMoreCoins/>
           <NavBar switch_function={switch_screen} active_page_name={active_page} />
           {active_page_fun()}
         </div>
