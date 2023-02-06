@@ -1,11 +1,11 @@
 .points-container {
-    color: white;
-    position: absolute;
-    right: .5rem;
-    top: .5rem;
-    z-index: 2;
+  color: white;
+  position: absolute;
+  right: -1.5rem;
+  top: -1.5rem;
+  z-index: 2;
 }
 
 .points-icon {
-    margin-right: .3rem
+  margin-right: 0.3rem;
 }

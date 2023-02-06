@@ -32,12 +32,12 @@
   margin-left: 2rem;
 }
 
-ul {
+.get-more-coins-card-body > ul {
   padding: 0 1rem 2rem 1rem;
   margin: 0;
 }
 
-li {
+.get-more-coins-card-body > ul > li {
   margin-top: 1rem;
 }
 
