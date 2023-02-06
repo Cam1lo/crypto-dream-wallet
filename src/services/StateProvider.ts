@@ -16,6 +16,12 @@ export default class StateProvider {
         setUser(await ApiProvider.get_user());
     }
     
+    static async ear_poins(amount: number) {
+        const { setUser } = bindActionCreators(actionCreators, this.dispatch)
+        await ApiProvider.update_points(amount)
+        setUser(await ApiProvider.get_user())
+    }
+
     static async init_portfolio() {
         const { setPortfolio } = bindActionCreators(actionCreators, this.dispatch);
         setPortfolio(await ApiProvider.get_portfolio());
