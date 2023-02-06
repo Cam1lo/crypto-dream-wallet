@@ -5,12 +5,14 @@ export const userReducer = (
     state:any = {},
     action: Action
 ) => {
+    Object.assign(state, action.payload)
+
     switch (action.type) {
         case AT.GET_USER:
-            return state;
+            return {...state};
         case AT.SET_USER:
             state = action.payload;
-            return state;
+            return {...state};
         default:
             return state
         }
