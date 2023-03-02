@@ -8,14 +8,19 @@ export default class StateProvider {
     static init_Provider(dispatch: any) {
         this.dispatch = dispatch;
     }
-    
+
     static async buy(uuid: string, spending: number) {
         const { setPortfolio, setUser } = bindActionCreators(actionCreators, this.dispatch);
         await ApiProvider.buy(uuid, spending);
         setPortfolio(await ApiProvider.get_portfolio());
         setUser(await ApiProvider.get_user());
     }
-    
+
+    static async sell(pcoin_uuid: string, amount_of_coin: number) {
+        const { setPortfolio, setUser } = bindActionCreators(actionCreators, this.dispatch);
+        await ApiProvider.sell(pcoin_uuid, amount_of_coin)
+    }
+
     static async ear_poins(amount: number) {
         const { setUser } = bindActionCreators(actionCreators, this.dispatch)
         await ApiProvider.update_points(amount)

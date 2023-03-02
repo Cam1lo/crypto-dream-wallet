@@ -1,0 +1,22 @@
+.confirm-sell-element-container {
+  display: flex;
+  align-items: center;
+}
+
+.amount {
+  width: 5rem;
+  height: 1.2rem;
+  border-radius: 0.3rem;
+  font-size: large;
+  margin-left: 0.5rem;
+  border: 2px solid rgb(177, 177, 177);
+  margin-bottom: 2px;
+}
+
+.confirm-points-icon {
+  font-size: 1.2rem;
+}
+
+.crypto-coin-icon {
+  width: 1.5rem;
+}

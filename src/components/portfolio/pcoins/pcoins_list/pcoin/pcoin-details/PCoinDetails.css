@@ -1,16 +1,37 @@
 .ptransaction {
-    display: flex;
-    /* width: 100%; */
-    justify-content: space-between;
-    margin: 1rem 0;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  align-items: center;
 }
 
 .ptransaction-left {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.ptransaction-amount { 
-    margin-left: 1rem;
+.ptransaction-amount {
+  margin-left: 1rem;
+}
+
+.sell-btn {
+  cursor: pointer;
+  background-color: #273667;
+  color: white;
+  border-radius: 0.2rem;
+  padding: 0.3rem 1rem;
+  margin-right: 2rem;
+  text-align: center;
+}
+
+.sell-container {
+  display: flex;
+  justify-content: end;
+}
+
+.sell-container > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 19rem;
 }

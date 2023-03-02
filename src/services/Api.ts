@@ -55,7 +55,7 @@ export default class Api {
             const pcoin_updated: IPortfolioCoin = {
                 coin: pcoin.coin,
                 amount: total_amount,
-                trades: [{ points_spended: amount_of_points  ,timestamp: date_string, amount: amount,  }].concat(pcoin.trades),
+                trades: [{ points_spended: amount_of_points, timestamp: date_string, amount: amount, }].concat(pcoin.trades),
                 value: Math.round(((total_amount * pcoin.coin.price) + Number.EPSILON) * 100) / 100
             }
 
@@ -71,6 +71,42 @@ export default class Api {
             this.update_points(-amount_of_points);
         }
     }
+
+    static sell(coin_uuid: string, amount_of_coin: number) {
+        const pcoin = this.user.portfolio.find(pcoin => pcoin.coin.uuid == coin_uuid);
+        // TODO:  Throw error in case of pcoin not found
+        if (!pcoin) return
+
+        const total_amount = pcoin.amount - amount_of_coin
+        const date_string = new Date(Date.now()).toLocaleString();
+        const points_earned = (amount_of_coin * pcoin.coin.price)
+
+        if (total_amount == 0) {
+            this.remove_from_portfolio(coin_uuid)
+            this.update_points(amount_of_coin * pcoin.coin.price)
+            return
+        }
+
+        const pcoin_updated: IPortfolioCoin = {
+            coin: pcoin.coin,
+            amount: total_amount,
+            trades: [{ points_spended: points_earned, timestamp: date_string, amount: -amount_of_coin }].concat(pcoin.trades),
+            value: Math.round(((total_amount * pcoin.coin.price) + Number.EPSILON) * 100) / 100
+        }
+
+        let updated_portfolio = this.user.portfolio;
+
+        var index = updated_portfolio.indexOf(pcoin);
+
+        if (index !== -1) {
+            updated_portfolio[index] = pcoin_updated;
+        }
+
+        this.user.portfolio = updated_portfolio
+        this.update_points(points_earned)
+    }
+
+
 
     static async add_to_portfolio(coin_uuid: string, amount_of_points: number) {
         const coin: ICoin = await this.get_coin_by_id(coin_uuid);

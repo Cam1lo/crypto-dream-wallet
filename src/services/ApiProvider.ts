@@ -1,6 +1,6 @@
 import Api from './Api';
 export default class ApiProvider {
-    
+
     static async login(username: string, password: string) {
         return Api.login(username, password);
     }
@@ -22,6 +22,10 @@ export default class ApiProvider {
 
     static async buy(coin_id: string, amount_of_points: number) {
         await Api.buy(coin_id, amount_of_points);
+    }
+
+    static async sell(coin_id: string, amount_of_coin: number) {
+        Api.sell(coin_id, amount_of_coin)
     }
 
     static async remove_from_portfolio(coin_id: string) {
