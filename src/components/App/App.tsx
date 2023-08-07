@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Market from "../market/Market";
 import GetMoreCoins from "./get-more-coins/GetMoreCoins";
